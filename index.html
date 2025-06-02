@@ -27,8 +27,61 @@
 
         let humanScore = 0;
         let computerScore = 0;
-        
-        console.log(getHumanChoice());
+
+        //plays a round of rock paper scissors and increments scores
+        //could make this function shorter if made into smaller functions
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice == "rock") {
+                if (computerChoice == "rock") {
+                    console.log("It's a tie! ");
+                }
+                else if (computerChoice == "paper") {
+                    console.log("You lose! " + computerChoice + " beats " + humanChoice);
+                    computerScore++;
+                }
+
+                else {
+                    console.log("You win!! " + humanChoice + " beats " + computerChoice);
+                    humanScore++;
+                }
+
+            }
+            else if (humanChoice == "paper") {
+                if (computerChoice == "rock") {
+                    console.log("You win!! " + humanChoice + " beats " + computerChoice);
+                    humanScore++;
+                }
+                else if (computerChoice == "paper") {
+                    console.log("It's a tie!");
+                }
+
+                else {
+                    console.log("You lose! " + computerChoice + " beats " + humanChoice);
+                    computerScore++;
+                }
+            }
+
+            else {
+                if (computerChoice == "rock") {
+                    console.log("You lose! " + computerChoice + " beats " + humanChoice);
+                    computerScore++;
+                }
+                else if (computerChoice == "paper") {
+                    console.log("You win!! " + humanChoice + " beats " + computerChoice);
+                    humanScore++;
+                }
+
+                else {
+                    console.log("It's a tie!");
+                }
+            }
+        }
+
+        const h_selects = getHumanChoice();
+        const c_selects = getComputerChoice();
+        console.log(playRound(h_selects, c_selects));
+        console.log(humanScore);
+        console.log(computerScore);
     </script>
 
 </body>
