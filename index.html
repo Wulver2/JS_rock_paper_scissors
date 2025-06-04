@@ -7,6 +7,11 @@
 </head>
 <body>
     
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
+    <div class="results"></div>
+
     <script>
         function getComputerChoice() {
             const random_num = Math.random() * 3;
@@ -25,9 +30,13 @@
             return prompt("Choose Rock, Paper, or Scissors").toLowerCase();
         }
 
-        function playGame() {
-            let humanScore = 0;
-            let computerScore = 0;
+   
+        let humanScore = 0;
+        let computerScore = 0;
+        let results = document.querySelector(".results");
+        results.textContent = `Your Score ${humanScore} Opponent's Score: ${computerScore}`;
+
+        function playGame(humanSelects) {
             let round = 0;
             //plays a round of rock paper scissors and increments scores
             //could make this function shorter if made into smaller functions
@@ -78,18 +87,12 @@
                 }
             }
             
-            while (round < 5) {
-                const h_selects = getHumanChoice();
-                const c_selects = getComputerChoice();
-                playRound(h_selects, c_selects)
-                round++;
-            }
-            console.log(humanScore);
-            console.log(computerScore);
+            const c_selects = getComputerChoice();
+            playRound(humanSelects, c_selects);
+            round++;
         }
 
-        console.log(playGame());
+        
     </script>
-
 </body>
 </html>
