@@ -37,7 +37,6 @@
         results.textContent = `Your Score ${humanScore} Opponent's Score: ${computerScore}`;
 
         function playGame(humanSelects) {
-            let round = 0;
             //plays a round of rock paper scissors and increments scores
             //could make this function shorter if made into smaller functions
             function playRound(humanChoice, computerChoice) {
@@ -89,7 +88,6 @@
             
             const c_selects = getComputerChoice();
             playRound(humanSelects, c_selects);
-            round++;
             results.textContent = `Your Score ${humanScore} Opponent's Score: ${computerScore}`;
         }
 
